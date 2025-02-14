@@ -2,11 +2,15 @@
 #include <fstream>
 #include <cstdlib>
 
+const int NUM = 10;
+
 void get_names(std::string *names);
+//Precondition: The array for the names must have 10 indices
+//Postcondtion: Stores the names within the 'names' text file within an array
 
 int main()
 {
-    std::string names[10];
+    std::string names[NUM];
 
     get_names(names);
 
