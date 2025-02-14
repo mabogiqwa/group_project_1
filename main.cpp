@@ -57,12 +57,38 @@ void get_scores(int scores[ROWS][COLUMNS])
         exit(1);
     }
 
-    while(!ins.eof())
+    while (!ins.eof())
     {
+        if (isdigit(next))
+        {
+            number += next;
+            std::cout << next;
+        } else if (next == ' ')
+        {
+
+            std::cout << std::endl;
+            score = std::stoi(number);
+            //std::cout << score << std::endl;
+            scores[row][column] = score;
+            column++;
+            number = "";
+        } else if (next == '\n')
+        {
+            std::cout << std::endl;
+            //std::cout << score << std::endl;
+            scores[row][column] = score;
+            row++;
+            column = 0;
+            number = "";
+        }
+
+        ins.get(next);
+        //std::cout << next << std::endl;
+        /*
         if (next == ' ')
         {
             score = std::stoi(number);
-            std::cout << score << std::endl;
+            //std::cout << score << std::endl;
             scores[row][column] = score;
             //std::cout << row << " " << column << std::endl;
             column = column + 1;
@@ -70,7 +96,7 @@ void get_scores(int scores[ROWS][COLUMNS])
         } else if (next == '\n') {
             score = std::stoi(number);
             scores[row][column] = score;
-            std::cout << score << std::endl;
+            //std::cout << score << std::endl;
             //std::cout << row << " " << column << std::endl;
             row = row + 1;
             column = 0;
@@ -78,9 +104,9 @@ void get_scores(int scores[ROWS][COLUMNS])
         }
 
         ins.get(next);
-        //std::cout << next << std::endl;
+        std::cout << next << std::endl;
         number += next;
-
+        */
     }
 
     ins.close();
