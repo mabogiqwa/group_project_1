@@ -12,6 +12,8 @@ void get_names(std::string *names);
 //Postcondtion: Stores the names within the 'names' text file within an array
 
 void get_scores(int scores[ROWS][COLUMNS]);
+//Precondition: The 2-dimensional array must be empty
+//Postcondition: Stores the test scores with the scores file into a 2-dimensional array
 
 int main()
 {
