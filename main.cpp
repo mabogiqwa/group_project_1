@@ -20,6 +20,16 @@ int main()
     int scores[ROWS][COLUMNS];
 
     get_scores(scores);
+
+    /*
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; i < COLUMNS; j++)
+        {
+            std::cout << scores[i][j] << " ";
+        }
+    }
+    */
     //get_names(names);
 
     /*
@@ -54,14 +64,21 @@ void get_scores(int scores[ROWS][COLUMNS])
             score = std::stoi(number);
             std::cout << score << std::endl;
             scores[row][column] = score;
+            //std::cout << row << " " << column << std::endl;
             column = column + 1;
             number = "";
         } else if (next == '\n') {
+            score = std::stoi(number);
+            scores[row][column] = score;
+            std::cout << score << std::endl;
+            //std::cout << row << " " << column << std::endl;
             row = row + 1;
             column = 0;
+            number = "";
         }
 
         ins.get(next);
+        //std::cout << next << std::endl;
         number += next;
 
     }
