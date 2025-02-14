@@ -21,24 +21,6 @@ int main()
 
     get_scores(scores);
 
-    /*
-    for (int i = 0; i < ROWS; i++)
-    {
-        for (int j = 0; i < COLUMNS; j++)
-        {
-            std::cout << scores[i][j] << " ";
-        }
-    }
-    */
-    //get_names(names);
-
-    /*
-    for (int i = 0; i < 10; i++)
-    {
-        std::cout << names[i] << std::endl;
-    }
-    */
-
     return 0;
 }
 
@@ -57,56 +39,33 @@ void get_scores(int scores[ROWS][COLUMNS])
         exit(1);
     }
 
-    while (!ins.eof())
+    while (ins.get(next))
     {
-        if (isdigit(next))
-        {
-            number += next;
-            std::cout << next;
-        } else if (next == ' ')
-        {
-
-            std::cout << std::endl;
-            score = std::stoi(number);
-            //std::cout << score << std::endl;
-            scores[row][column] = score;
-            column++;
-            number = "";
-        } else if (next == '\n')
-        {
-            std::cout << std::endl;
-            //std::cout << score << std::endl;
-            scores[row][column] = score;
-            row++;
-            column = 0;
-            number = "";
-        }
-
-        ins.get(next);
-        //std::cout << next << std::endl;
-        /*
         if (next == ' ')
         {
             score = std::stoi(number);
-            //std::cout << score << std::endl;
+            std::cout << score << std::endl;
             scores[row][column] = score;
-            //std::cout << row << " " << column << std::endl;
             column = column + 1;
             number = "";
         } else if (next == '\n') {
             score = std::stoi(number);
             scores[row][column] = score;
-            //std::cout << score << std::endl;
-            //std::cout << row << " " << column << std::endl;
+            std::cout << score << std::endl;
             row = row + 1;
             column = 0;
             number = "";
+        } else {
+            number += next;
         }
 
-        ins.get(next);
-        std::cout << next << std::endl;
-        number += next;
-        */
+    }
+
+    if (!number.empty())
+    {
+        score = std::stoi(number);
+        scores[row][column] = score;
+        std::cout << score << std::endl;
     }
 
     ins.close();
