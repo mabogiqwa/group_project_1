@@ -23,6 +23,11 @@ int main()
 
     get_scores(scores);
 
+    //Shivam you can write the code that calculate the average of 
+    //each of the students test score here
+    //Note that each row of the 2-dimensional array has the test scores of each student
+    //So while traversing through a row, you can sum up the scores and divide them by the number of columns to get the average of the student.
+
     return 0;
 }
 
